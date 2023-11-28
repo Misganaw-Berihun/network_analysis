@@ -155,5 +155,7 @@ venv.bak/
 # mkdocs documentation
 /site
 
+/data/Anonymized
+
 # mypy
 .mypy_cache/

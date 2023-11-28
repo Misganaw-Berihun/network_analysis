@@ -7,6 +7,7 @@ import copy
 from datetime import datetime
 from pick import pick
 from time import sleep
+import pandas as pd
 
 
 
@@ -34,7 +35,7 @@ class SlackDataLoader:
         '''
         self.path = path
         self.channels = self.get_channels()
-        self.users = self.get_ussers()
+        self.users = self.get_users()
     
 
     def get_users(self):
@@ -58,7 +59,6 @@ class SlackDataLoader:
     def get_channel_messages(self, channel_name):
         '''
         write a function to get all the messages from a channel
-        
         '''
 
     # 
@@ -72,7 +72,6 @@ class SlackDataLoader:
             userNamesById[user['id']] = user['name']
             userIdsByName[user['name']] = user['id']
         return userNamesById, userIdsByName        
-
 
 
 
