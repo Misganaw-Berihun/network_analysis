@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "channel1",
+        "created": "2023-01-01",
+        "creator": "user1",
+        "is_archived": false,
+        "is_general": true,
+        "members": ["user1", "user2"],
+        "topic": "Channel Topic 1",
+        "purpose": "Channel Purpose 1",
+        "pins": ["message1", "message2"]
+    },
+    {
+        "id": 2,
+        "name": "channel2",
+        "created": "2023-01-02",
+        "creator": "user2",
+        "is_archived": true,
+        "is_general": false,
+        "members": ["user2", "user3"],
+        "topic": "Channel Topic 2",
+        "purpose": "Channel Purpose 2",
+        "pins": ["message3", "message4"]
+    }
+]
