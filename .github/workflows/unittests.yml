@@ -72,4 +72,4 @@ jobs:
 
       - name: Run test for get_cahnnels
         run: |
-          python -m unittest test_get_channels.py
+          python -m unittest discover -v -s test_get_channels.py
