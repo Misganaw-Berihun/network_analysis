@@ -13,7 +13,7 @@ import json
 class Test(unittest.TestCase):
 
     def test_get_channesl(self):
-        sl = SlackDataLoader(os.getcwd())
+        sl = SlackDataLoader("./tests")
         channels = sl.get_channels()
 
         expected_columns = ['id', 'name', 'created', 'creator', 'is_archived', 'is_general', 'members', 'topic', 'purpose', 'pins']
