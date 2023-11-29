@@ -69,3 +69,7 @@ jobs:
         with:
           name: test-report
           path: ${{ steps.test.outputs.report_path }}
+
+      - name: Run test for get_cahnnels
+        run: |
+          python -m unittest test_get_channels.py
