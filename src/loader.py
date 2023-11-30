@@ -1,7 +1,7 @@
 from collections import defaultdict
 import json
 import argparse
-import os
+import os, sys
 import io
 import shutil
 import glob
@@ -10,9 +10,12 @@ from datetime import datetime
 from pick import pick
 from time import sleep
 import pandas as pd
-import utils as utils
 
+rpath = os.path.abspath('..')
+if rpath not in sys.path:
+    sys.path.insert(0, rpath)
 
+import src.utils as utils
 
 # Create wrapper classes for using slack_sdk in place of slacker
 class SlackDataLoader:

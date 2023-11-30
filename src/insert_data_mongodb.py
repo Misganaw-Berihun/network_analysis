@@ -1,5 +1,12 @@
+import os
+import sys
+
+rpath = os.path.abspath('..')
+if rpath not in sys.path:
+    sys.path.insert(0, rpath)
+
 import mongodb_connection as mc
-from loader import SlackDataLoader
+from src.loader import SlackDataLoader
 from message_schema import get_message_schema
 from channel_schema import get_channel_schema
 
