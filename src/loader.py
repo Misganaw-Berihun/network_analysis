@@ -1,3 +1,4 @@
+from collections import defaultdict
 import json
 import argparse
 import os
@@ -9,7 +10,7 @@ from datetime import datetime
 from pick import pick
 from time import sleep
 import pandas as pd
-import src.utils as utils
+import utils as utils
 
 
 
@@ -31,7 +32,7 @@ class SlackDataLoader:
     For secruity reason, we have annonymized names - the names you will see are generated using faker library.
     
     '''
-    def __init__(self, path):
+    def __init__(self, path = '../data/anonymized/'):
         '''
         path: path to the slack exported data folder
         '''
@@ -229,6 +230,26 @@ class SlackDataLoader:
 
         mentioned_users_df = user_names_df.merge(all_userids_mentioned, on='user_id', how='inner')
         return mentioned_users_df
+
+    def read_json_files(self):
+        combined = []
+        names = [self.channels[i]['name'] for i in range(len(self.channels))] 
+        for channel_name in names:
+            channel_files = defaultdict(list)
+            channel_path = self.path + channel_name + '/'
+            for json_file in glob.glob(f"{channel_path}*.json"):
+                with open(json_file, 'r', encoding="utf8") as slack_data:
+                    data = json.load(slack_data)
+                
+                sent_date = os.path.basename(json_file)
+                channel_files[channel_name].append({
+                    "sent_date": sent_date,
+                    "msg": data
+                })
+
+            combined.append(channel_files)
+        return combined
+
 
 
 if __name__ == "__main__":
