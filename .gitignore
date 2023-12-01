@@ -125,7 +125,7 @@ docs/_build/
 
 # PyBuilder
 target/
-
+docker-compose.yml
 # Jupyter Notebook
 .ipynb_checkpoints
 
