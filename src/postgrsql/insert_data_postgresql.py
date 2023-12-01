@@ -1,7 +1,14 @@
+import os
+import sys
+
+rpath = os.path.abspath('../../')
+if rpath not in sys.path:
+    sys.path.insert(0, rpath)
+    
 import pandas as pd
 from sqlalchemy import create_engine
-from postgresql_connect import create_database_engine
-from create_tables_postgresql import create_tables
+from src.postgrsql.postgresql_connect import create_database_engine
+from src.postgrsql.create_tables_postgresql import create_tables
 
 import os
 import sys

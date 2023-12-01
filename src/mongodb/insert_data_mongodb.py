@@ -1,14 +1,14 @@
 import os
 import sys
 
-rpath = os.path.abspath('..')
+rpath = os.path.abspath('../../')
 if rpath not in sys.path:
     sys.path.insert(0, rpath)
 
-import mongodb_connection as mc
+import src.mongodb.mongodb_connection as mc
 from src.loader import SlackDataLoader
-from message_schema import get_message_schema
-from channel_schema import get_channel_schema
+from src.mongodb.message_schema import get_message_schema
+from src.mongodb.channel_schema import get_channel_schema
 
 def insert_messages_into_channel(channel_name, date, messages):
     db = mc.get_database()
@@ -23,7 +23,7 @@ def insert_messages_into_channel(channel_name, date, messages):
     channels_collection.insert_one(channel_data)
 
 def read_files():
-    sl = SlackDataLoader()
+    sl = SlackDataLoader('../../data/anonymized/')
     js_files = sl.read_json_files()
 
     for file in js_files:

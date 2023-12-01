@@ -1,6 +1,12 @@
-# create_tables.py
+import os
+import sys
+
+rpath = os.path.abspath('../../')
+if rpath not in sys.path:
+    sys.path.insert(0, rpath)
+    
 from sqlalchemy import ForeignKey, MetaData, Table, Column, Integer, String, Float
-from postgresql_connect import create_database_engine
+from src.postgrsql.postgresql_connect import create_database_engine
 
 def create_tables(engine):
     metadata = MetaData()
