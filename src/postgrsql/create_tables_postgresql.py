@@ -15,7 +15,7 @@ def create_tables(engine):
     message_table = Table(
         'message_table',
         metadata,
-        Column('id', Integer, primary_key=True),
+        # Column('id', Integer, primary_key=True),
         Column('msg_type', String),  
         Column('msg_content', String),
         Column('sender_name', String),
@@ -29,24 +29,24 @@ def create_tables(engine):
     user_table = Table(
         'user_table',
         metadata,
-        Column('id', Integer, primary_key=True),
-        Column('user_id', Integer, unique=True),  
+        # Column('id', Integer, primary_key=True),
+        Column('user_id', String),  
         Column('user_name', String),
     )
 
     reaction_table = Table(
         'reaction_table',
         metadata,
-        Column('id', Integer, primary_key=True),
+        # Column('id', Integer, primary_key=True),
         Column('reaction_name', String),
         Column('reaction_count', Integer),
         Column('reaction_users_count', Integer),
         Column('message', String),
-        Column('user_id', Integer, ForeignKey('user_table.user_id')),  
+        Column('user_id', String),  
         Column('channel', String),
     )
 
 
     metadata.create_all(engine)
-
     print('Tables are created succesfully')
+    return message_table
