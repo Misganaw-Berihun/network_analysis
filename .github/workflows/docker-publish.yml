@@ -23,4 +23,4 @@ jobs:
         run: docker build -t msganawberihun10@gmail.com/network_analysis:latest .
 
       - name: Push Docker Image
-        run: docker push msganawberihun10@gmail.com/network_analysis:latest
+        run: docker push msganawberihun10@gmail.com/network_analysis:latest .
