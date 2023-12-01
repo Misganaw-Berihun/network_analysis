@@ -6,6 +6,3 @@ seaborn==0.13.0
 pymongo==4.6.1
 psycopg2_binary==2.9.9
 SQLAlchemy
-streamlit
-fastapi
-uvicorn
